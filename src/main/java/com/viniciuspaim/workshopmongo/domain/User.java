@@ -1,14 +1,19 @@
 package com.viniciuspaim.workshopmongo.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Document
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
+
+	@Id
 	private String id;
 	private String name;
-	private String mail;
+	private String email;
 	
 	public User() {
 		
@@ -18,7 +23,7 @@ public class User implements Serializable{
 		super();
 		this.id = id;
 		this.name = name;
-		this.mail = mail;
+		this.email = mail;
 	}
 
 	public String getId() {
@@ -38,11 +43,11 @@ public class User implements Serializable{
 	}
 
 	public String getMail() {
-		return mail;
+		return email;
 	}
 
 	public void setMail(String mail) {
-		this.mail = mail;
+		this.email = email;
 	}
 
 	@Override
