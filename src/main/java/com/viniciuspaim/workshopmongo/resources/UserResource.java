@@ -1,6 +1,5 @@
 package com.viniciuspaim.workshopmongo.resources;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
