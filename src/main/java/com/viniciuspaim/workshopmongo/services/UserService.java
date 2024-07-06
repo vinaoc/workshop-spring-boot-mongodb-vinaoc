@@ -1,5 +1,6 @@
 package com.viniciuspaim.workshopmongo.services;
 
+import com.viniciuspaim.workshopmongo.DTO.UserDTO;
 import com.viniciuspaim.workshopmongo.domain.User;
 import com.viniciuspaim.workshopmongo.repository.UserRepository;
 import com.viniciuspaim.workshopmongo.services.exception.ObjectNotFoundException;
@@ -27,5 +28,13 @@ public class UserService {
         } else {
             throw new ObjectNotFoundException("User not found");
         }
+    }
+
+    public User insert(User obj) {
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDTO objDTO) {
+        return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
     }
 }
