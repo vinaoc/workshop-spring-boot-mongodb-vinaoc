@@ -2,7 +2,6 @@ package com.viniciuspaim.workshopmongo.resources;
 
 import com.viniciuspaim.workshopmongo.domain.Post;
 import com.viniciuspaim.workshopmongo.services.PostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
