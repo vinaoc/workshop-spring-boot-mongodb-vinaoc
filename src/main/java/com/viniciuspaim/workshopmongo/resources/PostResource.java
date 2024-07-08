@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value="/posts")
 public class PostResource {
 
-	@Autowired
-	private PostService service;
+	private final PostService service;
+
+	public PostResource(PostService service) {
+		this.service = service;
+	}
 
 	@GetMapping(value="/{id}")
 	public ResponseEntity<Post> findById(@PathVariable String id) {
