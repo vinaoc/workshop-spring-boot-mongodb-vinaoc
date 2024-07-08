@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import com.viniciuspaim.workshopmongo.DTO.UserDTO;
 import com.viniciuspaim.workshopmongo.domain.Post;
 import com.viniciuspaim.workshopmongo.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +17,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping(value="/users")
 public class UserResource {
 
-	@Autowired
-	private UserService service;
+	private final UserService service;
+
+	public UserResource(UserService service) {
+		this.service = service;
+	}
 
 	@GetMapping
 	public ResponseEntity<List<UserDTO>> findAll() {
@@ -32,9 +34,6 @@ public class UserResource {
 	public ResponseEntity<UserDTO> findById(@PathVariable String id) {
 		User user = service.findById(id);
 		return ResponseEntity.ok().body(new UserDTO(user));
-
-		/**User obj = service.findById(id.toString());
-		return ResponseEntity.ok().body(new UserDTO(obj));**/
 	}
 
 	@PostMapping
