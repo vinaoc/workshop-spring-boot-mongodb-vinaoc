@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.viniciuspaim.workshopmongo.DTO.UserDTO;
+import com.viniciuspaim.workshopmongo.domain.Post;
 import com.viniciuspaim.workshopmongo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,5 +57,11 @@ public class UserResource {
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
+	}
+
+	@GetMapping(value="/{id}/posts")
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+		User obj = service.findById(id);
+		return ResponseEntity.ok().body(obj.getPosts());
 	}
 }
