@@ -5,10 +5,8 @@ import com.viniciuspaim.workshopmongo.domain.Post;
 import com.viniciuspaim.workshopmongo.domain.User;
 import com.viniciuspaim.workshopmongo.repository.PostRepository;
 import com.viniciuspaim.workshopmongo.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
-
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.TimeZone;
@@ -16,11 +14,14 @@ import java.util.TimeZone;
 @Configuration
 public class Instantiation implements CommandLineRunner {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private PostRepository postRepository;
+    private final PostRepository postRepository;
+
+    public Instantiation(PostRepository postRepository, UserRepository userRepository) {
+        this.postRepository = postRepository;
+        this.userRepository = userRepository;
+    }
 
     @Override
     public void run(String... args) throws Exception {
