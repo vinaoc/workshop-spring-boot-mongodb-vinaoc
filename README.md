@@ -33,3 +33,11 @@ Este projeto é uma aplicação de exemplo para a criação de uma API Restful u
 1. Clone o repositório:
    ```sh
    git clone https://github.com/vinaoc/workshop-spring-boot-mongodb-vinaoc.git
+2. Navegue até o diretório do projeto:
+   ```sh
+   cd workshop-spring-boot-mongodb-vinaoc
+3. Execute o projeto:
+   ```sh
+   ./mvnw spring-boot:run
+
+   
